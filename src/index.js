@@ -11,6 +11,9 @@ class App extends Component {
       tax: "",
       brutto: "",
       mode: true,
+      nameError: "",
+      numberError: "",
+      netPriceError: ""
     },
     rows: [
       {
@@ -19,8 +22,6 @@ class App extends Component {
         netPrice: 100,
         tax: 8,
         brutto: 108,
-        updating: false,
-        id: ""
       }
     ]
   };
@@ -45,7 +46,7 @@ class App extends Component {
         [e.target.name]: e.target.value
       }
     });
-    console.log(this.state.formState.number);
+    //console.log(this.state.formState.number);
   };
 
 
@@ -70,8 +71,6 @@ class App extends Component {
             netPrice,
             tax,
             brutto,
-            updating: false,
-            id: this.state.rows[this.state.rows.length - 1].id + 1
           }
         ]
       });
@@ -111,7 +110,7 @@ const Table = ({ rows = [] }) => {
         <div className="table-body">
           {rows.map((row, key) => {
             return (
-              <div className={`row ${row.updating ? "updating" : ""}`}>
+              <div className="row">
                 <div className="column">{row.name}</div>
                 <div className="column">{row.number}</div>
                 <div className="column">{row.netPrice} zł</div>
@@ -143,8 +142,6 @@ const Field = ({ label = "", name = "", value = "", onChange }) => {
     </div>
   );
 };
-
-
 
 const TaxField = ({ label = "", name = "", value = "", onChange }) => {
   return (
@@ -189,11 +186,10 @@ const Form = ({ formState = [], onChange, handleSubmit}) => {
           onChange={onChange}
         />
       </fieldset>
-      <button>{formState.mode}Dodaj</button>
+      <button className="btn">Dodaj</button>
     </form>
   );
 };
-
 
 render(<App />, document.getElementById('root'));
 
