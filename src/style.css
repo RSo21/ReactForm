@@ -1,3 +1,38 @@
 h1, p {
   font-family: Lato;
 }
+
+.table{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  background-color: white;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;   
+}
+.table-header{
+  width: 100%;
+  background-color: #3D6B9B;
+  color: white;
+}
+.table-body {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  color: black;
+}
+.row {
+  display: inline-flex;
+  width: 100%;
+  box-sizing: border-box;
+   }
+.column {
+  width: 25%;
+  padding: 10px;
+  text-align: center;
+}
+.column:hover{
+  background-color: #6B91C6
+} 
